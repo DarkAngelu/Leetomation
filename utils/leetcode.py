@@ -1,8 +1,4 @@
-
 from typing import Dict
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support import expected_conditions as EC
-import time
 
 from utils.No_01_driver_and_wait_setup import driver_and_wait_setup
 from utils.No_02_add_cookies import add_cookies
@@ -12,6 +8,7 @@ from utils.No_05_getting_to_solution_page import getting_to_solution_page
 from utils.No_06_filtering_out_cpp_code import filtering_out_cpp_code
 from utils.No_07_clicking_the_first_solution import clicking_the_first_solution
 from utils.No_08_extracting_the_solution import extracting_the_solution
+from utils.No_09_submit_code_to_editor import submit_code_to_editor
 
 
 def do_daily(cookies: Dict[str, str] = {}) -> None:
@@ -64,6 +61,12 @@ def do_daily(cookies: Dict[str, str] = {}) -> None:
     
 
     # 8. Now we need to get the C++ code from the first solution
-    extracting_the_solution(driver, wait)
+    cpp_code = extracting_the_solution(wait)    
 
 
+    # 9. Now we need to submit the code to the Monaco editor on the daily problem page
+    submit_code_to_editor(driver, wait, cpp_code)
+
+
+    # 10. Close the driver
+    driver.quit()

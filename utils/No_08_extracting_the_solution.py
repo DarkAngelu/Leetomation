@@ -5,8 +5,7 @@ from selenium.webdriver.support import expected_conditions as EC
 
 
 
-
-def extracting_the_solution(driver: WebDriver, wait: WebDriverWait[WebDriver]) -> None:
+def extracting_the_solution(wait: WebDriverWait[WebDriver]) -> str:
     """
     Extract the solution from the daily problem page.
 
@@ -14,7 +13,7 @@ def extracting_the_solution(driver: WebDriver, wait: WebDriverWait[WebDriver]) -
         driver: The Selenium WebDriver instance.
 
     Returns:
-        None.
+        The C++ code as a string.
     """
 
     
@@ -28,9 +27,9 @@ def extracting_the_solution(driver: WebDriver, wait: WebDriverWait[WebDriver]) -
     )
 
     # Extract and print the code
-    cpp_code = code_element.text
-    print("✅ Extracted C++ Code:\n")
-    print(cpp_code)
+    cpp_code: str = code_element.text
+
+    return cpp_code
 
     # Optional: save the code to a file 
 
