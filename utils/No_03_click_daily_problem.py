@@ -1,5 +1,7 @@
 from selenium.webdriver.chrome.webdriver import WebDriver
 from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions as EC
 
 import time
 
@@ -35,9 +37,9 @@ def click_daily_problem(wait: WebDriverWait[WebDriver]) -> None:
 
         # Click the button
         daily_problem_button.click()
-        print("Clicked Daily Problem button.")
+
     except Exception as e:
-        print("Could not click Daily Problem button:", e)
+        print(f"Error clicking the daily problem button: {e}")
         exit(1)
 
     # Wait for the daily problem page to load

@@ -33,6 +33,7 @@ def filtering_out_cpp_code(driver: WebDriver, wait: WebDriverWait[WebDriver]) ->
             span.click()
             break
     else:
+        print("Error: C++ language span not found.")
         exit(1)
 
     

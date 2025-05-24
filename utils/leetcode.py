@@ -10,6 +10,7 @@ from utils.No_03_click_daily_problem import click_daily_problem
 from utils.No_04_switching_to_the_daily_problelm_tab import switching_to_the_daily_problem_tab
 from utils.No_05_getting_to_solution_page import getting_to_solution_page
 from utils.No_06_filtering_out_cpp_code import filtering_out_cpp_code
+from utils.No_07_clicking_the_first_solution import clicking_the_first_solution
 
 
 def do_daily(cookies: Dict[str, str] = {}) -> None:
@@ -53,3 +54,8 @@ def do_daily(cookies: Dict[str, str] = {}) -> None:
 
     # 6. Now we need to filter out the C++ code from the solutions page
     filtering_out_cpp_code(driver, wait)
+
+    
+
+    # 7. Now we need to click the first solution on the daily problem page
+    clicking_the_first_solution(driver, wait)
