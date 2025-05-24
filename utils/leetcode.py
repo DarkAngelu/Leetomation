@@ -9,6 +9,7 @@ from utils.No_02_add_cookies import add_cookies
 from utils.No_03_click_daily_problem import click_daily_problem
 from utils.No_04_switching_to_the_daily_problelm_tab import switching_to_the_daily_problem_tab
 from utils.No_05_getting_to_solution_page import getting_to_solution_page
+from utils.No_06_filtering_out_cpp_code import filtering_out_cpp_code
 
 
 def do_daily(cookies: Dict[str, str] = {}) -> None:
@@ -47,3 +48,8 @@ def do_daily(cookies: Dict[str, str] = {}) -> None:
     
     # 5. Now we need to get to the solutions page
     getting_to_solution_page(driver)
+    
+
+
+    # 6. Now we need to filter out the C++ code from the solutions page
+    filtering_out_cpp_code(driver, wait)
