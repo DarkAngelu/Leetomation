@@ -11,6 +11,7 @@ from utils.No_04_switching_to_the_daily_problelm_tab import switching_to_the_dai
 from utils.No_05_getting_to_solution_page import getting_to_solution_page
 from utils.No_06_filtering_out_cpp_code import filtering_out_cpp_code
 from utils.No_07_clicking_the_first_solution import clicking_the_first_solution
+from utils.No_08_extracting_the_solution import extracting_the_solution
 
 
 def do_daily(cookies: Dict[str, str] = {}) -> None:
@@ -59,3 +60,10 @@ def do_daily(cookies: Dict[str, str] = {}) -> None:
 
     # 7. Now we need to click the first solution on the daily problem page
     clicking_the_first_solution(driver, wait)
+
+    
+
+    # 8. Now we need to get the C++ code from the first solution
+    extracting_the_solution(driver, wait)
+
+
