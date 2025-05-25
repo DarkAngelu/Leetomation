@@ -21,13 +21,19 @@ def extracting_the_solution(wait: WebDriverWait[WebDriver]) -> str:
 
 
 
-    # Wait until the code block is present
-    code_element = wait.until(
+    # Wait until at least one C++ code block is present
+    wait.until(
         EC.presence_of_element_located((By.CSS_SELECTOR, "code.language-cpp"))
     )
 
-    # Extract and print the code
-    cpp_code: str = code_element.text
+    # Find all code elements with class 'language-cpp'
+    code_elements = wait._driver.find_elements(By.CSS_SELECTOR, "code.language-cpp")
+
+    if not code_elements:
+        raise Exception("No C++ code blocks found on the page")
+
+    # Extract the last code block's text
+    cpp_code = code_elements[-1].text
 
     return cpp_code
 
