@@ -23,6 +23,12 @@ def filtering_out_cpp_code(driver: WebDriver, wait: WebDriverWait[WebDriver]) ->
     # Wait until at least one span is present
     wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, "span.cursor-pointer")))
 
+    # This sleep() is required for the page to load all the language spans
+    # ; will fix later
+    # Note: This is a workaround for the page loading issue
+    
+    time.sleep(1)
+
     # Get all clickable language spans
     language_spans = driver.find_elements(By.CSS_SELECTOR, "span.cursor-pointer")
 
